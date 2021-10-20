@@ -9,12 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0.0</version>
 
-    <modules>
-        <module>base</module>
-        <module>function</module>
-        <module>annotation</module>
-    </modules>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -31,7 +25,11 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <configuration>
+                        <archive>
+                            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                        </archive>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
