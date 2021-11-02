@@ -29,6 +29,11 @@ public enum Case {
     CONST,
 
     /**
+     * All lowercase, words separated by hyphens. this-is-an-example-of-skewer-case
+     */
+    SKEWER,
+
+    /**
      * All lowercase, words separated by a single space. this is an example of space case
      */
     SPACE,
@@ -54,9 +59,10 @@ public enum Case {
 
         switch (c) {
             case SNAKE:
-            case CONST: {
-                String r = String.join("_", words);
-                if (c == Case.SNAKE)
+            case CONST:
+            case SKEWER: {
+                String r = String.join(c == SKEWER ? "-" : "_", words);
+                if (c == Case.CONST)
                     return r.toUpperCase(Locale.ENGLISH);
                 else
                     return r.toLowerCase(Locale.ENGLISH);
